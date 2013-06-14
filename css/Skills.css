@@ -1,0 +1,29 @@
+﻿
+/*get rid of*/
+.SkillRow{
+    padding: 1px 8px;
+    vertical-align:middle;
+}
+
+.SkillsL_tb{
+ 	width: 180px;
+ 	height: 22px;
+ 	background-color:#9999AA;
+	border: 0px #F0F0F0 solid;
+    margin: 1px 5px 1px 0px;
+}
+
+.SkillsSActive_tb{
+ 	width: 26px;
+ 	height: 22px;
+ 	background-color:#CCCCDD;
+	border: 0px #F0F0F0 solid;
+    margin: 1px 5px 1px 0px;
+}
+.SkillsSInactive_tb{
+ 	width: 26px;
+ 	height: 22px;
+ 	background-color:#9999AA;
+	border: 0px #F0F0F0 solid;
+    margin: 1px 5px 1px 0px;
+}

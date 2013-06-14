@@ -1,0 +1,369 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/DnD.master" AutoEventWireup="true" CodeFile="Stats.master.cs" Inherits="Stats" %>
+<%@ Register Src="~/controls/Skills_Pathfinder.ascx" TagName="Skills" TagPrefix="uc"%>
+<%@ Register Src="~/controls/AddSubtract.ascx" TagName="AddSub" TagPrefix="uc"%>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="HeadContent" Runat="server">
+
+</asp:Content>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="TabSwitch" Runat="server">
+    <div>
+        <asp:Button ID="Save" runat="server" Text="Save Stats" BackColor="#DDDD00" OnClick="SaveStats" />
+    </div>
+<!--
+<img src="images/Contaminated_Ground_GTC_1280x960_Wallpaper.jpg" />
+-->
+    <div>
+        <div class="BlockLg">
+            Name<asp:TextBox ID="Name_tb" runat="server" CssClass="ActiveTextBoxLg" />
+        </div>
+        <div class="BlockSm">
+            Level<asp:TextBox ID="Level_tb" runat="server" ReadOnly="true" CssClass="InactiveTextBoxSm" />
+        </div>
+        <div class="BlockLg">
+            Race<asp:TextBox ID="Race_tb" runat="server" ReadOnly="true" CssClass="InactiveTextBoxLg" />
+        </div>
+        <div class="BlockLg">
+            Class<asp:TextBox ID="Class_tb" runat="server" ReadOnly="true" CssClass="InactiveTextBoxLg" />
+        </div>
+        <div class="BlockLg">
+            Alignment<asp:TextBox ID="Alignment_tb" runat="server" CssClass="ActiveTextBoxLg" />
+        </div>
+        <div class="BlockMd">
+            Size<asp:TextBox ID="Size_tb" runat="server" ReadOnly="true" CssClass="InactiveTextBoxMd" />
+        </div>
+        <div class="BlockSm">
+            Age<asp:TextBox ID="Age_tb" runat="server" CssClass="ActiveTextBoxSm" />
+        </div>
+        <div class="BlockMd">
+            Sex<asp:TextBox ID="Sex_tb" runat="server" CssClass="ActiveTextBoxMd" />
+        </div>
+        <div class="BlockMd">
+            Height<asp:TextBox ID="Height_tb" runat="server" CssClass="ActiveTextBoxMd" />
+        </div>
+        <div class="BlockMd">
+            Weight<asp:TextBox ID="Weight_tb" runat="server" CssClass="ActiveTextBoxMd" />
+        </div>
+        <div class="BlockLg">
+            Deity<asp:TextBox ID="Deity_tb" runat="server" CssClass="ActiveTextBoxLg" />
+        </div>
+        <div style="clear:both"></div>
+    </div>
+
+    <div style="float:left;">
+        <div class="LeftBlock">
+            <div class="Blank">
+                <div style="text-align:center; font-size:large; height:24px;">Ability</div>
+            </div>
+            <div class="Blank">
+                <div style="float:left; width:160px; text-align:center; font-size:125%;">Name</div>
+                <div style="float:left; width:34px; text-align:center; font-size:85%;">Score</div>
+                <div style="float:left; width:34px; text-align:center; font-size:85%;">Mod</div>
+                <div style="float:left; width:34px; text-align:center; font-size:85%;">Temp</div>
+            </div>
+
+
+
+
+
+            <asp:UpdatePanel ID="UpdatePanel2" runat="server" UpdateMode="Conditional" OnPreRender="Str_TextChanged">
+                <ContentTemplate>
+
+
+            
+
+                    <div class="Str">
+                        <div class="StatName"><StrLight>STR</StrLight><StrDark>ENGTH</StrDark></div>
+                        <asp:TextBox ID="TextBox1" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="TextBox2" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="TextBox3" runat="server" CssClass="ActiveAbility_tb" Visible="false"/>
+
+                        <div id="KDK" class="tooltip" runat="server" style="float:right"></div>
+                    </div>
+
+
+            
+
+                </ContentTemplate>
+            </asp:UpdatePanel>
+
+            <div style="clear:both"></div>
+            
+            
+            
+            <asp:UpdatePanel ID="StrStat" runat="server" UpdateMode="Conditional" OnPreRender="Str_TextChanged">
+                <ContentTemplate>
+                    <div class="Str">
+                        <div class="StatName"><StrLight>STR</StrLight><StrDark>ENGTH</StrDark></div>
+                        <asp:TextBox ID="Str_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="StrMod_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="StrTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false"/>
+                        <uc:AddSub ID="StrChange" runat="server" /> 
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="DexStat" runat="server" UpdateMode="Conditional" OnPreRender="Dex_TextChanged">
+                <ContentTemplate>
+                    <div class="Dex">
+                        <div class="StatName"><DexLight>DEX</DexLight><DexDark>TERITY</DexDark></div>
+                        <asp:TextBox ID="Dex_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="DexMod_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="DexTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="DexChange" runat="server" /> 
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="ConStat" runat="server" UpdateMode="Conditional" OnPreRender="Con_TextChanged">
+                <ContentTemplate>
+                    <div class="Con">
+                        <div class="StatName"><ConLight>CON</ConLight><ConDark>STITUTION</ConDark></div>
+                        <asp:TextBox ID="Con_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="ConMod_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="ConTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="ConChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+            
+            <asp:UpdatePanel ID="IntStat" runat="server" UpdateMode="Conditional" OnPreRender="Int_TextChanged">
+                <ContentTemplate>
+                    <div class="Int">
+                        <div class="StatName"><IntLight>INT</IntLight><IntDark>ELLIGENCE</IntDark></div>
+                        <asp:TextBox ID="Int_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="IntMod_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="IntTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="IntChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="WisStat" runat="server" UpdateMode="Conditional" OnPreRender="Wis_TextChanged">
+                <ContentTemplate>
+                    <div class="Wis">
+                        <div class="StatName"><WisLight>WIS</WisLight><WisDark>DOM</WisDark></div>
+                        <asp:TextBox ID="Wis_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="WisMod_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="WisTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="WisChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="ChaStat" runat="server" UpdateMode="Conditional" OnPreRender="Cha_TextChanged">
+                <ContentTemplate>
+                    <div class="Cha">
+                        <div class="StatName"><ChaLight>CHA</ChaLight><ChaDark>RISMA</ChaDark></div>
+                        <asp:TextBox ID="Cha_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="ChaMod_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <asp:TextBox ID="ChaTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="ChaChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+            
+            <div class="Blank"></div>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="FortStat" runat="server" UpdateMode="Conditional" OnPreRender="Fort_TextChanged">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="ConChange" />
+                </Triggers>
+                <ContentTemplate>
+                    <div class="Con">
+                        <div class="StatName"><ConDark>FORTITUDE</ConDark></div>
+                        <asp:TextBox ID="Fortitude_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <div class="AbilityEmptyInput"></div>
+                        <asp:TextBox ID="FortitudeTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="FortitudeChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="ReflexStat" runat="server" UpdateMode="Conditional" OnPreRender="Reflex_TextChanged">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="DexChange" />
+                </Triggers>
+                <ContentTemplate>
+                    <div class="Dex">
+                        <div class="StatName"><DexDark>REFLEX</DexDark></div>
+                        <asp:TextBox ID="Reflex_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <div class="AbilityEmptyInput"></div>
+                        <asp:TextBox ID="ReflexTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="ReflexChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+
+            <asp:UpdatePanel ID="WillStat" runat="server" UpdateMode="Conditional" OnPreRender="Will_TextChanged">
+                <Triggers>
+                    <asp:AsyncPostBackTrigger ControlID="WisChange" />
+                </Triggers>
+                <ContentTemplate>
+                    <div class="Wis">
+                        <div class="StatName"><WisDark>WILL</WisDark></div>
+                        <asp:TextBox ID="Will_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                        <div class="AbilityEmptyInput"></div>
+                        <asp:TextBox ID="WillTemp_tb" runat="server" CssClass="ActiveAbility_tb" Visible="false" />
+                        <uc:AddSub ID="WillChange" runat="server" />
+                    </div>
+                </ContentTemplate>
+            </asp:UpdatePanel>
+            <div style="clear:both"></div>
+        </div>
+
+        <div class="LeftBlock">
+            <div class="Blank"></div>
+            <!--<div class="Neutral">
+                <asp:Image ID="Image17" runat="server" CssClass="VariableImage" ImageUrl="images/Speed.jpg" />
+                <asp:TextBox ID="Speed_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+            </div>-->
+            <div class="Blank"></div>
+            <div style="clear:both;"></div>
+            <div class="Con"><asp:UpdatePanel ID="UpdatePanel1" runat="server" OnPreRender="Damage"><ContentTemplate>
+                <div class="StatName"><ConLight>H</ConLight><ConDark>IT </ConDark><ConLight>P</ConLight><ConDark>OINTS</ConDark></div>
+                <asp:TextBox ID="CurrHP_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" AutoPostBack="true" />
+                <div style="float:left">/</div>           
+                <asp:TextBox ID="TotalHP_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                <uc:AddSub ID="HPChange" runat="server" />
+            </div></ContentTemplate></asp:UpdatePanel>
+            <div style="clear:both"></div>
+            <div class="Dex">
+                <div class="StatName"><DexLight>A</DexLight><DexDark>RMOR </DexDark><DexLight>C</DexLight><DexDark>LASS</DexDark></div>
+                <asp:TextBox ID="TotalAC_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+                <!--NA<asp:TextBox ID="NaturalAC_tb" runat="server" CssClass="ActiveTextBoxSm" ReadOnly="true" />
+                Dodge<asp:TextBox ID="DodgeAC_tb" runat="server" CssClass="ActiveTextBoxSm" ReadOnly="true" />
+                Def<asp:TextBox ID="DeflectionAC_tb" runat="server" CssClass="ActiveTextBoxSm" ReadOnly="true" />
+                Misc<asp:TextBox ID="MiscAC_tb" runat="server" CssClass="ActiveTextBoxSm" ReadOnly="true" />-->
+            </div>
+            <div style="clear:both"></div>
+            <div class="Dex">
+                <div class="StatName"><DexDark>TOUCH </DexDark><DexLight>AC</DexLight></div>
+                <asp:TextBox ID="TouchAC_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+            </div>
+            <div style="clear:both"></div>
+            <div class="Dex">
+                <div class="StatName"><DexDark>FLAT-FOOTED </DexDark><DexLight>AC</DexLight></div>
+                <asp:TextBox ID="FlatFootedAC_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+            </div>
+            <div style="clear:both"></div>
+            <div class="Dex">
+                <div class="StatName"><DexDark>INITATIVE</DexDark></div>
+                <asp:TextBox ID="Init_tb" runat="server" CssClass="Stat_tb" ReadOnly="true" />
+            </div>
+            <div style="clear:both"></div>
+            
+            <asp:contentplaceholder id="GeneralInfo" runat="server"></asp:contentplaceholder>
+            <div style="clear:both"></div>
+
+
+            <div class="Dex">
+                <DexDark>STATS_</DexDark>
+                <asp:TextBox ID="StatsEnter" runat="server" Width="300px" />
+            </div>
+            <div class="Dex">
+                <DexDark>SKILLS</DexDark>
+                <asp:TextBox ID="SkillsEnter" runat="server" Width="300px" />
+            </div>
+            <div class="Dex">
+                <DexDark>OTHER</DexDark>
+                <asp:TextBox ID="OtherEnter" runat="server" Width="300px" />
+            </div>
+            <div class="Dex">
+                <asp:Button runat="server" Width="300px" Text="Update" OnClick="UpdateBonuses" />
+            </div>
+
+
+
+            
+        </div>
+        <div style="clear:both;"></div>
+        
+        <asp:UpdatePanel ID="CoinAndWeight_up" runat="server" OnPreRender="CoinChanged"><ContentTemplate> 
+            <div>
+                Total Weight<asp:TextBox ID="TotalWeight_tb" runat="server" CssClass="ActiveTextBoxMd" />
+                Light Load<asp:TextBox ID="LightLoad_tb" runat="server" BackColor="Yellow" CssClass="ActiveTextBoxMd" />
+                Medium Load<asp:TextBox ID="MediumLoad_tb" runat="server" BackColor="Orange" CssClass="ActiveTextBoxMd" />
+                Heavy Load<asp:TextBox ID="HeavyLoad_tb" runat="server" BackColor="Red" CssClass="ActiveTextBoxMd" />
+            </div>
+            
+            <div style="float:left">
+                <div style="float:left"><asp:Image ID="Platinum" runat="server" ImageUrl="~/images/Coin_Platinum.JPG" /></div>
+                <div style="float:left;padding:1px;">
+                    <div><asp:TextBox ID="Platinum_tb" runat="server" CssClass="InactiveTextBoxMd" ReadOnly="true" /></div>
+                    <uc:AddSub ID="CoinsPP" runat="server" />
+                </div>
+                <div class="clear"></div>
+            </div>               
+            <div style="float:left">
+                <div style="float:left"><asp:Image ID="Gold" runat="server" ImageUrl="~/images/Coin_Gold.JPG" /></div>
+                <div style="float:left;padding:1px;">
+                    <div><asp:TextBox ID="Gold_tb" runat="server" CssClass="InactiveTextBoxMd" ReadOnly="true" /></div>
+                    <uc:AddSub ID="CoinsGP" runat="server" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div style="float:left">
+                <div style="float:left"><asp:Image ID="Silver" runat="server" ImageUrl="~/images/Coin_Silver.JPG" /></div>
+                <div style="float:left;padding:1px;">
+                    <div><asp:TextBox ID="Silver_tb" runat="server" CssClass="InactiveTextBoxMd" ReadOnly="true" /></div>
+                    <uc:AddSub ID="CoinsSP" runat="server" />
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div style="float:left">
+                <div style="float:left"><asp:Image ID="Copper" runat="server" ImageUrl="~/images/Coin_Copper.JPG" /></div>
+                <div style="float:left;padding:1px;">
+                    <div><asp:TextBox ID="Copper_tb" runat="server" CssClass="InactiveTextBoxMd" ReadOnly="true" /></div>
+                    <uc:AddSub ID="CoinsCP" runat="server" />
+                </div>
+                <div class="clear"></div>
+            </div>
+        </ContentTemplate></asp:UpdatePanel>
+
+        <asp:UpdatePanel ID="XP" runat="server" OnPreRender="XPChanged"><ContentTemplate> 
+            <div style="float:left">
+                <div style="float:left"><asp:Image runat="server" ImageUrl="~/images/XP.JPG" /></div>
+                <div style="float:left">
+                    <div><asp:TextBox ID="XP_tb" runat="server" CssClass="InactiveTextBoxMd" ReadOnly="true" /></div>
+                    <uc:AddSub ID="XPChange" runat="server" />
+                </div>
+            </div>
+            <div class="clear"></div>
+            <asp:Panel ID="Level_panel" runat="server" BorderWidth="10px" BorderStyle="Dotted" BorderColor="DarkGoldenrod" Visible="true"><div>
+                    Next Level is <%= DnDSession.Level + 1 %>.  HP to increase by 
+                    <asp:TextBox ID="LevelUpHP_tb" runat="server" CssClass="ActiveTextBoxSm" />
+                    Number of Skill Ranks to increase by 
+                    <asp:TextBox ID="LevelUpRanks_tb" runat="server" CssClass="ActiveTextBoxSm" />
+                     
+                <asp:Button ID="LevelUp" runat="server" Text="Level Up" BackColor="#DD9999" OnClick="LevelUpCharacter" />
+            </div></asp:Panel>
+        </ContentTemplate></asp:UpdatePanel>
+        
+        <div>
+            Class Abilities:<br />
+            <asp:TextBox ID="ClassAbilities" runat="server" Width="625px" Height="30px" TextMode="MultiLine" /><br />
+        </div>  
+        <p>using <%= (DnDSession.Notes).Length %> out of 2048 characters</p>
+        Notes:<br />
+        <asp:TextBox ID="Notes_tb" runat="server" Width="625px" Height="500px" TextMode="MultiLine" />
+    </div>
+    </div>
+    <asp:UpdatePanel ID="Skills_update" runat="server" OnPreRender="SkillsReload" ><ContentTemplate>
+        <div class="LeftBlock">
+            <asp:contentplaceholder id="Skills" runat="server"></asp:contentplaceholder>
+            <uc:Skills ID="CharacterSkills" runat="server" />
+        </div>
+    </ContentTemplate></asp:UpdatePanel>
+    <div style="clear:both;"></div>
+</asp:Content>
+

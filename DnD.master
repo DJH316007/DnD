@@ -1,0 +1,68 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="DnD.master.cs" Inherits="MasterPage" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" >
+<head id="Head1" runat="server">
+    <title>My D and D Page</title>
+    <link rel="stylesheet" href="~/css/DnD.css" type="text/css"/>
+    
+    <script type="text/javascript">
+        var m = <%=Session.Timeout%>; var s = 0; var e = null;
+        
+   
+
+        function startTimer(){
+            if(!e)
+                e = document.getElementById("time");
+            dispTime();
+            setInterval("countdown()", 1000);
+        }
+
+        function countdown(){
+            if (m == 0 && s == 0)
+                return;
+            if (s == 0){
+                s = 59;
+                m--;
+            }
+            else {
+                s--;
+            }
+            dispTime();
+        }
+
+        function dispTime(){
+            var min, sec;
+            if (m < 10)
+                min = "0" + m;
+            else
+                min = m;
+            if (s < 10)
+                sec = "0" + s;
+            else
+                sec = s;
+            e.innerHTML ="The time remaining in the session: " + min + ":" + sec;
+        }
+        window.onload = startTimer;
+    </script> 
+    <asp:contentplaceholder id="HeadContent" runat="server">
+    </asp:contentplaceholder>
+</head>
+    <body>
+        <form id="form1" runat="server">
+        <asp:ScriptManager ID="scriptMgr" runat="server" />
+        <div>
+            <asp:HiddenField ID="CharID" runat=server />
+            <asp:Button ID="Stats" runat="server" Text="Stats" />
+            <asp:Button ID="Items" runat="server" Text="Items" PostBackUrl="~/Items.aspx" />
+            <asp:Button ID="Spells" runat="server" Text="Spells" PostBackUrl="~/Spells.aspx" />
+            <asp:Button ID="Home" runat="server" Text="Choose Another Character" BackColor=#DD00FF PostBackUrl="~/Default.aspx" />
+            <span id="time" ></span>
+        </div>  
+        <div>
+            <asp:contentplaceholder id="TabSwitch" runat="server">
+            </asp:contentplaceholder>
+        </div>
+        </form>
+    </body>
+</html>

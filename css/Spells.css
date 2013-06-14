@@ -1,0 +1,71 @@
+﻿body {
+}
+
+.SpellLevelButton{
+	width: 80px;
+ 	background-color:#9ACD32;
+ 	text-align:center;
+	border: 0px #888888 solid;
+    margin: 0px;
+}
+
+.SPDHeader{
+	width: 250px;
+ 	height: 20px;
+ 	background-color:#666666;
+ 	text-align:center;
+	border: 1px #000000 solid;
+    margin: 0px;
+}
+.SPDLevel{
+ 	width: 250px;
+ 	height: 20px;
+ 	background-color:#666699;
+ 	text-align:center;
+	border: 1px #000000 solid;
+    margin: 0px;
+}
+.SPDSpell{
+ 	width: 250px;
+ 	height: 20px;
+ 	background-color:#AAAABB;
+	border: 0px #F0F0F0 solid;
+    margin: 2px 0px 2px 0px;
+}
+
+.SpellAttributeArea{
+  width: 922px;
+  height: 400px;
+  overflow: auto;
+  border: 1px #000000 solid;
+  margin: 0px;  
+}
+
+.SpellAttributeMdHeader{
+  	width: 173px;
+ 	height: 20px;
+ 	background-color:#FFDD88;
+	border: 1px #000000 solid;
+    margin: 0px;  
+}
+.SpellAttributeSmHeader{
+  	width: 28px;
+ 	height: 20px;
+ 	background-color:#FFDD88;
+	border: 1px #000000 solid;
+    margin: 0px;  
+}
+.SpellAttributeMd{
+  	width: 173px;
+ 	height: 20px;
+ 	background-color:#CCDDCC;
+	border: 1px #000000 solid;
+    margin: 0px;  
+}
+.SpellAttributeSm{
+  	width: 28px;
+ 	height: 20px;
+ 	background-color:#CCDDCC;
+	border: 1px #000000 solid;
+    margin: 0px;  
+}

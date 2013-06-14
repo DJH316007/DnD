@@ -1,0 +1,77 @@
+﻿body {
+}
+/*Items Page*/
+.SideBlock{
+    width: 350px;
+    padding: 10px 0px;
+    margin: 5px 20px;
+	text-align: center;
+	background-color: #557;
+	float: left;   
+}
+.CenterBlock{
+    width: 450px;
+    height: 600px;
+    padding: 0px;
+	text-align: center;
+	background-image: url('../images/ItemGuy.jpg');
+	background-repeat: no-repeat;
+	float: left;
+}
+
+.ItemArea{
+    background-color:#889;
+}
+.ItemArea:hover{
+    background-color:#AAB;
+}
+
+.ItemButtonIcon{
+ 	height: 20px;
+	border: 0px #000000 solid;
+	padding: 1px;
+	text-align:center;
+	vertical-align:middle;
+}
+
+.ItemL{
+ 	width: 150px;
+ 	height: 16px;
+ 	background-color:#DDD;
+	border: 0px #F0F0F0 solid;
+    margin: 2px 0px 2px 0px;
+}
+
+.ItemM{
+ 	width: 100px;
+ 	height: 16px;
+ 	background-color:#DDD;
+	border: 0px #F0F0F0 solid;
+	margin: 2px 0px 2px 0px;
+}
+.ItemS{
+ 	width: 30px;
+ 	height: 16px;
+ 	background-color:#DDD;
+	border: 0px #F0F0F0 solid;
+	margin: 2px 0px 2px 0px;
+}
+
+.InfoViewBlock{
+    width: 320px;
+    padding: 5px;
+    float:left;
+}
+
+.InfoEditBlock{
+    width: 320px;
+    padding: 5px;
+    background-color:#AA9;
+    float:left;
+}
+
+#ItemImage{
+    height:60px;
+    float:left; 
+    padding:2px;
+}

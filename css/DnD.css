@@ -1,0 +1,448 @@
+﻿orderingOfStuff {
+    z-index: 999; 
+    visibility: visible; 
+    position:absolute;
+    left: auto;
+    top: auto;
+    float: left;    
+    display: table;/*aligns the divs with floats to center*/
+    vertical-align: middle;
+    text-align: center;
+    clear:both;    
+    width: 480px;
+    height: 320px;
+    padding: 4px;     
+    border: 2px #B1D7D2 solid;
+    margin: 2px; 
+    background-color: #EEFFFF;    
+    background-image: url("../images/Test1.bmp");          
+    background-repeat:repeat-x;      
+    list-style-type:circle;    
+    font-family :Cambria;
+  	font-size: 110%;      
+  	font-weight: bolder;
+    color: #FF0000;   
+    text-decoration: none;/*underline, blink*/
+    line-height: 0px;/*spacing between lines*/
+}
+
+
+
+
+
+
+
+
+		.tooltip {
+			border-bottom: 1px dotted #000000; color: #000000; outline: none;
+			cursor: help; text-decoration: none;
+			position: relative;
+		}
+		.tooltip span {
+			margin-left: -999em;
+			position: absolute;
+		}
+		.tooltip:hover span {
+			border-radius: 5px 5px; -moz-border-radius: 5px; -webkit-border-radius: 5px; 
+			box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1); -webkit-box-shadow: 5px 5px rgba(0, 0, 0, 0.1); -moz-box-shadow: 5px 5px rgba(0, 0, 0, 0.1);
+			font-family: Calibri, Tahoma, Geneva, sans-serif;
+			position: absolute; left: 1em; top: 2em; z-index: 99;
+			margin-left: 0; width: 250px;
+		}
+		.tooltip:hover img {
+			border: 0; margin: -10px 0 0 -55px;
+			float: left; position: absolute;
+		}
+		.tooltip:hover em {
+			font-family: Candara, Tahoma, Geneva, sans-serif; font-size: 1.2em; font-weight: bold;
+			display: block; padding: 0.2em 0 0.6em 0;
+		}
+		.classic { padding: 0.8em 1em; }
+		.custom { padding: 0.5em 0.8em 0.8em 2em; }
+		* html a:hover { background: transparent; }
+		.classic {background: #FFFFAA; border: 1px solid #FFAD33; }
+		.critical { background: #FFCCAA; border: 1px solid #FF3334;	}
+		.help { background: #9FDAEE; border: 1px solid #2BB0D7;	}
+		.info { background: #9FDAEE; border: 1px solid #2BB0D7;	}
+		.warning { background: #FFFFAA; border: 1px solid #FFAD33; }
+		
+
+
+
+
+
+
+
+
+
+body { 
+    text-align: center; 
+    width: 1200px;   
+    padding: 4px;    
+    margin: auto;
+    background-color: #000; 
+    color: #EEE; 
+    font-size: 95%;
+
+}
+/*
+img {
+filter: url(filters.svg#grayscale); // Firefox 3.5+
+filter: gray; // IE5+
+-webkit-filter: grayscale(1); // Webkit Nightlies & Chrome Canary
+}
+ 
+img:hover {
+filter: none;
+-webkit-filter: grayscale(0);
+}
+*/
+
+
+.clear{
+	clear: both;
+}
+
+input{
+    padding: 0px;
+    margin: 0px; 
+}
+	
+.LeftBlock{
+	float: left;
+	text-align: left;	
+	margin: 10px;
+}
+
+.BlockSm{
+	float: left;     
+	text-align: center;    
+    width: 25px;
+    padding: 2px 15px;
+	margin-right: 0px;
+}
+.BlockMd{
+	float: left;   
+	text-align: center;    
+    width: 50px;
+    padding: 2px 15px;
+	margin-right: 0px;
+}
+.BlockLg{
+	float: left;     
+ 	text-align: center;   
+    width: 120px;
+    padding: 2px 15px;
+	margin-right: 0px;
+}
+
+.InactiveTextBoxSm{
+ 	width: 25px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #AAAABB;	
+}
+.ActiveTextBoxSm{
+ 	width: 25px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #DDDDCC;	
+}
+
+.InactiveTextBoxMd{
+ 	width: 50px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #AAAABB;	
+}
+.ActiveTextBoxMd{
+ 	width: 50px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #DDDDCC;	
+}
+
+.InactiveTextBoxLg{
+ 	width: 120px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #AAAABB;	
+}
+.ActiveTextBoxLg{
+ 	width: 120px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #DDDDCC;	
+}
+
+.InactiveTextBoxXL{
+ 	width: 200px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #AAAABB;	
+}
+.ActiveTextBoxXL{
+ 	width: 200px;
+ 	height: 18px;
+	border: 0px #000000 solid;
+	margin: 3px;
+    background-color: #DDDDCC;	
+}
+
+.CharacterPanel{
+   	width: 600px;
+   	height: 22px;
+   	padding: 2px 5px;
+	border: 1px #000000 solid;
+	margin: 2px;
+    background-color: #CCCCDD;
+}
+
+.StatName{
+   	float: left;
+  	vertical-align: middle;     	
+   	text-align: center;  	
+   	width: 160px;
+  	height: 24px;
+  	margin-right: 5px;    
+  	background-color: #222222;    
+  	font-family :Cambria;
+  	font-weight: bolder;
+  	font-size: larger;
+}
+.StatName StrDark{
+  	color: #00D;
+}
+.StatName StrLight{
+  	color: #00F;
+}
+.StatName DexDark{
+  	color: #0B0;
+}
+.StatName DexLight{
+  	color: #0F0;
+}
+.StatName ConDark{
+  	color: #B00;
+}
+.StatName ConLight{
+  	color: #F00;
+}
+.StatName IntDark{
+  	color: #BB0;
+}
+.StatName IntLight{
+  	color: #FF0;
+}
+.StatName WisDark{
+  	color: #0BB;
+}
+.StatName WisLight{
+  	color: #0FF;
+}
+.StatName ChaDark{
+  	color: #B0B;
+}
+.StatName ChaLight{
+  	color: #F0F;
+}
+.StatName CMD{
+  	font-size: 65%;
+  	color: #FF00FF;
+}
+
+.Str{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#00C;
+}
+.Dex{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#0C0;
+}
+.Con{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#C00;
+}
+.Int{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#CC0;
+}
+.Wis{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#0CC;
+}
+.Cha{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#C0C;
+}
+
+.Neutral{
+    vertical-align:middle;    
+    height:24px;
+    padding: 1px;   
+    border: 1px #000000 solid;    
+    margin: 0px;
+    background-color:#666666;
+}
+.Blank{
+    vertical-align:middle;    
+    height:26px;
+    padding: 1px;   
+    border: 0px #000000 solid;    
+    margin: 0px;
+}
+
+.Stat_tb{
+    float: left;
+    background-color: #9999AA;
+ 	width: 26px;
+ 	height: 22px;
+	border: 0px #000000 solid;
+	margin: 1px 5px 1px 0px;
+	text-align: center;
+}
+
+.AddSub_tb{
+ 	width: 26px;
+ 	height: 22px;
+ 	background-color:#CCCCDD;
+	border: 0px #F0F0F0 solid;
+    margin: 0px;
+}
+
+.AbilityEmptyInput{
+    float: left;   
+    width: 31px;
+    height: 26px;
+}
+
+.CoinAdd_tb{
+   	width: 30px; 	
+	border: 0px #000000 solid;
+  	margin: 3px 3px 3px 0px;  	
+  	background-color: #DDDDCC;	
+}
+
+/*does not work...suppose to replace Str, Dex.....*/
+.StatAligned{
+    vertical-align:middle;     
+    height:22px;/*IE blows*/   
+    background-color:#000000;
+    padding: 1px;
+    border: 1px #000000 solid;   
+    margin: 0px;  
+}
+
+.StatAligned Str{
+    background-color:#00E;    
+}
+
+.StatAligned Dex{
+    background-color:#0E0 !important;    
+}
+/**/
+
+
+
+
+
+
+
+/*Spell Page*/
+.SpellLevel{
+    font-size:larger;
+    text-align:center;
+    background-color:#bbbbcc;
+}
+.SpellName{
+ 	height:20px;
+ 	width:150px;
+    background-color:#ffdd88;
+    border:0px;	
+}
+.SpellSchool{
+ 	height:20px;
+ 	width:175px;
+    background-color:#eedd99;
+    border:0px;	
+}
+.SpellComp{
+ 	height:20px;
+ 	width:125px;
+    background-color:#ddddaa;
+    border:0px;	
+}
+.SpellTime{
+ 	height:20px;
+ 	width:125px;
+    background-color:#ccddbb;
+    border:0px;	
+}
+.SpellRange{
+ 	height:20px;
+ 	width:175px;
+    background-color:#bbddcc;
+    border:0px;	
+}
+.SpellDuration{
+ 	height:20px;
+ 	width:200px;
+    background-color:#aadddd;
+    border:0px;	
+}
+.SpellSaving{
+ 	height:20px;
+ 	width:150px;
+    background-color:#99ddee;
+    border:0px;	
+}
+.SpellRes{
+ 	height:20px;
+ 	width:25px;
+    background-color:#88ddff;
+    border:0px;	
+}
+
+.Add{
+    height: 11px;
+ 	width: 11px;
+ 	border: 0px #009900 solid;
+ 	background-image: url("../images/Add1.bmp");
+}
+.Subtract{
+    height: 11px;
+ 	width: 11px;
+ 	border: 0px #990000 solid;	
+ 	background-image: url("../images/Subtract1.bmp");
+}
